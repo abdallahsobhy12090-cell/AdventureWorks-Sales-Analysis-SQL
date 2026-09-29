@@ -92,78 +92,14 @@ select
 
  
 
- select c.name ,  count(*) العدد  , max(listprice) الاعلي  , min (listprice) kareem  , avg(listprice) المتوسط 
+ select c.name ,  count(*) العدد  , max(listprice) الاعلي  , min (listprice) الاصغر , avg(listprice) المتوسط 
  from production.ProductSubcategory c join production.product p
 on c.ProductSubcategoryid  = p.ProductSubcategoryid
  group by c.name
- having count(*) > 10
+ having count(*)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- -- windows functionس
+  
+ -- windows function
 
 select SalesOrderID , CustomerID , OrderDate,TotalDue,
 Sum(TotalDue) Over(Partition by CustomerID) as CustomrTotalRevenue
